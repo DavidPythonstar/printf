@@ -1,18 +1,18 @@
-##The _printf() function
+The _printf() function
 
 We are creating a variadic function that performs exactly the same purpose just like the printf() in C programming.
 
 The printf() is  a function in C programming used to do formatted printing.
 It comprises of the following components: 
 
-##ARGUMENTS 
+ARGUMENTS 
 	Strings
 	Floats
 	Boolean
 	Integers
 	Characters
 	Doubles
-##FORMAT SPECIFIERS
+FORMAT SPECIFIERS
 	Special characters
 	Precisions
 

@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 					{
 						int x = va_arg(args, int);
 
-						putchar(x);
+						putchar(x + '0');
 						break;
 					}
 				case 'f':

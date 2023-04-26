@@ -3,7 +3,7 @@
 
 /**
  * _printf - takes in variable number of aguments
- * @*format: pointer to the first address of the variable arguments
+ *format: pointer to the first address of the variable arguments
  * @... : infinite variable list
  * Return: counter
  */
@@ -15,7 +15,6 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 
 	int i = 0;
-
 	int counter = 0;
 
 	while (format[i])
@@ -29,35 +28,40 @@ int _printf(const char *format, ...)
 					{
 						int x = va_arg(args, int);
 
-						printf("%d", x);
+						putchar(x);
 						break;
 					}
 				case 'f':
 					{
 						 double x = va_arg(args, double);
 
-						 printf("%f", x);
+						 putchar(x);
 						 break;
 					}
 				case 'c':
 					{
 						int x = va_arg(args, int);
 
-						printf("%c", x);
+						putchar(x);
 						break;
 					}
 				case 'i':
 					{
 						int x = va_arg(args, int);
 
-						printf("%d", x);
+						putchar(x);
 						break;
 					}
 				case 's':
 					{
 						char *x = va_arg(args, char*);
+						int i = 0;
 
-						printf("%s", x);
+						while (x[i] != '\0')
+						{
+							putchar(x[i]);
+							i++;
+						}
 						break;
 					}
 				case 'x':
@@ -65,28 +69,30 @@ int _printf(const char *format, ...)
 					{
 						int x = va_arg(args, int);
 
-						printf("%x", x);
+						putchar(x);
 						break;
 					}
+					/**
 				case 'p':
 					{
 						void *x = va_arg(args, void*);
 
-						printf("%p", x);
+						putchar(x);
 						break;
 					}
+					*/
 				case 'o':
 					{
 						int x = va_arg(args, int);
 
-						printf("%o", x);
+						putchar(x);
 						break;
 					}
 				case 'u':
 					{
 						int x = va_arg(args, int);
 
-						printf("%u", x);
+						putchar(x);
 						break;
 					}
 				case '%':
@@ -95,7 +101,7 @@ int _printf(const char *format, ...)
 						break;
 					}
 				default:
-					printf("%%%c", format[i]);
+					putchar(format[i]);
 					break;
 			}
 		} else

@@ -1,5 +1,4 @@
 #include <stdarg.h>
-#include <stdio.h>
 
 /**
  * _printf - takes in variable number of aguments

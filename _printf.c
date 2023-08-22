@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "main.h"
+#include <string.h>
 
 /**
  * _printf - prints out things on the standard out put
@@ -8,17 +9,20 @@
  * Return: Number of elements printed
  */
 
+
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int character_count;
+	int character_count = 0;
+	va_start(args, format);
 
 	if (format == NULL)
 	{
-		Return(-1);
+		va_end(args);
+		return (character_count);
 	}
 
-	while (*format && *format != '/0')
+	while (*format)
 	{
 		if (*format != '%')
 		{
@@ -33,18 +37,23 @@ int _printf(const char *format, ...)
 			{
 				char character = va_arg(args, int);
 
-				write(1, character, 1);
+				write(1, &character, 1);
 				character_count++;
 			}
 			if (*format == 's')
 			{
 				const char *string = va_arg(args, const char*);
 
-				write(1, string, _strlen(string));
-				charater_count += _strlen(string);
+				write(1, string, strlen(string));
+				character_count += strlen(string);
 			}
+
+			format++;
 		}
 
+		format++;
 	}
+
+	va_end(args);
 	return (character_count);
 }

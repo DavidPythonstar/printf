@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include "main.h"
 #include <string.h>
-
+#include <stdio.h>
 /**
  * _printf - prints out things on the standard out put
  * @format: formatted specifier
@@ -54,7 +54,7 @@ int _printf(const char *format, ...)
 				 char buffer[20];
 				 int size = sprintf(buffer, "%d", number);
 				 write(1, buffer, size);
-				 character_count += len;
+				 character_count += size;
 			}
 			
 		}

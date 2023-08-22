@@ -50,9 +50,11 @@ int _printf(const char *format, ...)
 			}
 			if (*format == 'i' || *format == 'd')
 			{
-				int num = va_arg(args, int);
-				write(1, num, 1);
-				character_count++;
+				 int number = va_arg(args, int);
+				 char buffer[20];
+				 int size = sprintf(buffer, "%d", number);
+				 write(1, buffer, size);
+				 character_count += len;
 			}
 			
 		}

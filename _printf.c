@@ -47,8 +47,12 @@ int _printf(const char *format, ...)
 				write(1, string, strlen(string));
 				character_count += strlen(string);
 			}
-
-			format++;
+			if (*format == '%')
+			{
+				char symbol = '%';
+				write(1, symbol, 1);
+			}			
+			
 		}
 
 		format++;

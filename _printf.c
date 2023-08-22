@@ -14,6 +14,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int character_count = 0;
+
 	va_start(args, format);
 
 	if (format == NULL)
@@ -46,6 +47,12 @@ int _printf(const char *format, ...)
 
 				write(1, string, strlen(string));
 				character_count += strlen(string);
+			}
+			if (*format == 'i' || *format == 'd')
+			{
+				int num = va_arg(args, int);
+				write(1, num, 1);
+				character_count++;
 			}
 			
 		}
